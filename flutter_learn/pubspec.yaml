@@ -29,6 +29,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
 
+  dio: ^3.0.9 #网络库
+  json_annotation: ^2.4.0
+  fluttertoast: ^3.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -74,3 +78,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  assets:
+    - assets/images/tabbar/
+    - assets/images/home/
