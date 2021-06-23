@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/Home/Model/HomeModel.dart';
-import 'package:flutter_learn/Home/Page/HJRatingStar.dart';
-import 'package:flutter_learn/Home/Page/HJDashLine.dart';
-import 'package:flutter_learn/Base/HJToast.dart';
+import 'package:flutter_learn/DouBan/Home/Model/HomeModel.dart';
+import 'package:flutter_learn/DouBan/Home/Page/HJRatingStar.dart';
+import 'package:flutter_learn/DouBan/Home/Page/HJDashLine.dart';
+import 'package:flutter_learn/DouBan/Base/HJToast.dart';
 
 class HJHomeItem extends StatelessWidget {
   final HomeModel model;

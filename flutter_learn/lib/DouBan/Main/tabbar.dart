@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/Home/Page/Home.dart';
-import 'package:flutter_learn/Group/Group.dart';
-import 'package:flutter_learn/Mall/Mall.dart';
-import 'package:flutter_learn/Mine/Mine.dart';
-import 'package:flutter_learn/Subject/Subject.dart';
+import 'package:flutter_learn/DouBan/Home/Page/Home.dart';
+import 'package:flutter_learn/DouBan/Group/Group.dart';
+import 'package:flutter_learn/DouBan/Mall/Mall.dart';
+import 'package:flutter_learn/DouBan/Mine/Mine.dart';
+import 'package:flutter_learn/DouBan/Subject/Subject.dart';
 
 class HJTabBar extends StatefulWidget {
   @override

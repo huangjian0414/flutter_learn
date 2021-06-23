@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'package:flutter_learn/Http/HttpRequest.dart';
-import 'package:flutter_learn/Http/HttpTool.dart';
-import 'package:flutter_learn/Home/Model/HomeModel.dart';
+import 'package:flutter_learn/DouBan/Http/HttpRequest.dart';
+import 'package:flutter_learn/DouBan/Http/HttpTool.dart';
+import 'package:flutter_learn/DouBan/Home/Model/HomeModel.dart';
 
 class HomeService {
   static Future<List<HomeModel>> requestHomeList() async {

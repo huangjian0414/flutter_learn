@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/Home/Model/HomeModel.dart';
-import 'package:flutter_learn/Home/Page/HomeItem.dart';
-import 'package:flutter_learn/Home/Service/HomeService.dart';
+import 'package:flutter_learn/DouBan/Home/Model/HomeModel.dart';
+import 'package:flutter_learn/DouBan/Home/Page/HomeItem.dart';
+import 'package:flutter_learn/DouBan/Home/Service/HomeService.dart';
 
 class HJHomePage extends StatelessWidget {
   @override

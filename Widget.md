@@ -1179,7 +1179,7 @@ class _HYHomePageState extends State<HYHomePage> {
 
 ## Key
 
-- 例子在`豆瓣demo`的`Test文件夹`里
+- 例子都在`flutter学习`工程的`Test文件夹`里
 
 ### StatelessWidget
 
@@ -1237,4 +1237,3 @@ ValueKey(Random().nextInt(10000)) 随机key 每次删除都会出现随机颜色
 - 通常我们会使用`GlobalKey`某个`Widget`对应的`Widget`或`State`或`Element`
 
 - `GlobalKey`可以帮助我们访问某个`Widget`的信息，包括`Widget`或`State`或`Element`等对象
-- 例子在`豆瓣demo`里的`Test`文件夹

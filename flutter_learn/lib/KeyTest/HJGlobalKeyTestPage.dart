@@ -2,7 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_learn/Base/LogUtils.dart';
+import 'package:flutter_learn/DouBan/Base/LogUtils.dart';
 
 void main()=>runApp(MyApp());
 
