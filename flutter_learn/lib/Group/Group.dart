@@ -10,7 +10,7 @@ class HJGroupPage extends StatelessWidget {
           child: Text('小组'),
         ),
         navigationBar: CupertinoNavigationBar(
-          middle: Text('小租'),
+          middle: Text('小组'),
         ));
   }
 }

@@ -55,15 +55,21 @@ class HJHomeItem extends StatelessWidget {
         SizedBox(
           width: 8,
         ),
-        buildMiddelInfo(),
-        SizedBox(
-          width: 8,
-        ),
-        buildMiddleInfoDashLine(),
-        SizedBox(
-          width: 8,
-        ),
-        buildMiddleInfoWish()
+        Expanded(child: IntrinsicHeight(///高度一样
+          child: Row(
+            children: [
+              buildMiddelInfo(),
+              SizedBox(
+                width: 8,
+              ),
+              buildMiddleInfoDashLine(),
+              SizedBox(
+                width: 8,
+              ),
+              buildMiddleInfoWish()
+            ],
+          ),
+        ))
       ],
     );
   }
@@ -142,7 +148,7 @@ class HJHomeItem extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.only(top: 10),
-      height: 100,
+      //height: 100,
       child: HJDashLine(
         axis: Axis.vertical,
         dashWidth: 1,
@@ -156,7 +162,7 @@ class HJHomeItem extends StatelessWidget {
   Widget buildMiddleInfoWish() {
     return GestureDetector(
       child: Container(
-        height: 100,
+        //height: 100,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
