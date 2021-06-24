@@ -1,6 +1,8 @@
 
 import 'package:flutter_learn/DouBan/Base/LogUtils.dart';
 import 'package:flutter_learn/StateTest/Provider/HJCounterViewModel.dart';
+import 'package:flutter_learn/StateTest/Provider/HJUserViewModel.dart';
+import 'package:flutter_learn/StateTest/Provider/ProviderManager.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +18,18 @@ import 'package:flutter/material.dart';
  */
 
 void main() {
+  // runApp(
+  //   ChangeNotifierProvider(create: (ctx) {
+  //     return HJCounterViewModel();
+  //   },child: MyApp(),));
+
+  /// 多个provider
   runApp(
-    ChangeNotifierProvider(create: (ctx) {
-      return HJCounterViewModel();
-    },child: MyApp(),));
+    MultiProvider(
+      providers: providers,
+      child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -56,7 +66,7 @@ class _HJStateTestPageState extends State{
       body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [HJShowData1(), HJShowData2()],
+              children: [HJShowData1(), HJShowData2(),HJShowData3()],
             ),
           ),
       /// 通过Consumer 使用共享数据
@@ -72,7 +82,7 @@ class _HJStateTestPageState extends State{
       // ),
       floatingActionButton: Selector<HJCounterViewModel,HJCounterViewModel>(
         selector: (ctx, counterVM)=>counterVM,
-        shouldRebuild: (pre, next)=>false,
+        shouldRebuild: (pre, next)=>false,/// 是否重新build
         builder: (ctx, counterVM, child){
           HJLog('builder ', StackTrace.current);
           return FloatingActionButton(
@@ -109,7 +119,7 @@ class HJShowData2 extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     /// 使用共享数据
-    int counter = Provider.of<HJCounterViewModel>(context).counter;
+    ///int counter = Provider.of<HJCounterViewModel>(context).counter;
     HJLog('HJShowData2 build方法', StackTrace.current);
     // TODO: implement build
     return Container(
@@ -122,5 +132,24 @@ class HJShowData2 extends StatelessWidget{
       ),
       color: Colors.amberAccent,
     );
+  }
+}
+
+class HJShowData3 extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Column(children: [
+      Consumer<HJCounterViewModel>(builder: (ctx, counterVM, child){
+        return Text('当前计数：${counterVM.counter}',style: TextStyle(fontSize: 20,color: Colors.green),);
+      }),
+      Consumer2<HJUserViewModel,HJCounterViewModel>(builder: (ctx, userVM, counterVM, child){
+        return Text(
+              '当前计数：${counterVM.counter} - name:${userVM.user.name} age:${userVM.user.age} height:${userVM.user.height}',
+              style: TextStyle(fontSize: 20, color: Colors.deepOrangeAccent),
+              maxLines: 5,
+            );
+      })
+    ],);
   }
 }
