@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_learn/RouteTest/HJRouteAboutPage.dart';
 import 'package:flutter_learn/RouteTest/HJRouteDetailPage.dart';
 import 'package:flutter_learn/RouteTest/HJRouteUnknownPage.dart';
+import 'package:flutter_learn/RouteTest/HJRouter.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,28 +20,11 @@ class MyApp extends StatelessWidget {
        // home: HJRouteTestPage(),
       ///设置应用程序从哪一个路由开始启动，设置了该属性，就不需要再设置home属性了
       initialRoute: HJRouteTestPage.routeName,
-      routes: {
-        HJRouteAboutPage.routeName: (ctx) => HJRouteAboutPage(),
-        HJRouteTestPage.routeName:(ctx) => HJRouteTestPage()
-      },
+      routes: HJRouter.routers,
       ///找不到路由时调用, 跳转的界面需要参数，命名路由不太方便
-      onGenerateRoute: (settings){
-        if (settings.name == HJRouteDetailPage.routeName){
-          return MaterialPageRoute(builder: (ctx){
-            return HJRouteDetailPage(settings.arguments);
-          });
-        }
-        return null;
-        // return MaterialPageRoute(builder: (ctx){
-        //   return HJRouteUnknownPage();
-        // });
-      },
+      onGenerateRoute: HJRouter.generateRoute,
       /// 未找到路由，跳转统一界面
-      onUnknownRoute: (settings){
-        return MaterialPageRoute(builder: (ctx){
-          return HJRouteUnknownPage();
-        });
-      },
+      onUnknownRoute: HJRouter.onUnknownRoute,
     );
   }
 }
