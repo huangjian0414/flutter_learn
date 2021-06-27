@@ -124,12 +124,14 @@ class HJHomeItem extends StatelessWidget {
   }
   /// 评分
   Widget buildMiddelInfoRate(){
-    return Row(
-      children: [
-        HJRatingStar(rating: model.rating,size: 20,selectedColor: Color.fromARGB(255, 254, 172, 45),),
-        SizedBox(width: 6),
-        Text('${model.rating}', style: TextStyle(fontSize: 16),)
-      ],
+    return FittedBox(/// 防止尺寸越界
+      child: Row(
+        children: [
+          HJRatingStar(rating: model.rating,size: 20,selectedColor: Color.fromARGB(255, 254, 172, 45),),
+          SizedBox(width: 6),
+          Text('${model.rating}', style: TextStyle(fontSize: 16),)
+        ],
+      ),
     );
   }
   /// 简介

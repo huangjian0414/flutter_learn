@@ -33,6 +33,7 @@ dependencies:
   json_annotation: ^2.4.0
   fluttertoast: ^3.1.0
   provider: ^5.0.0
+  event_bus: ^2.0.0
 
 dev_dependencies:
   flutter_test:
