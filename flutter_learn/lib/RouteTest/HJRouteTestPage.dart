@@ -2,7 +2,9 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_learn/RouteTest/HJRouteAboutPage.dart';
 import 'package:flutter_learn/RouteTest/HJRouteDetailPage.dart';
+import 'package:flutter_learn/RouteTest/HJRouteUnknownPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,12 +16,38 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return MaterialApp(
-        home: HJRouteTestPage(),
+       // home: HJRouteTestPage(),
+      ///设置应用程序从哪一个路由开始启动，设置了该属性，就不需要再设置home属性了
+      initialRoute: HJRouteTestPage.routeName,
+      routes: {
+        HJRouteAboutPage.routeName: (ctx) => HJRouteAboutPage(),
+        HJRouteTestPage.routeName:(ctx) => HJRouteTestPage()
+      },
+      ///找不到路由时调用, 跳转的界面需要参数，命名路由不太方便
+      onGenerateRoute: (settings){
+        if (settings.name == HJRouteDetailPage.routeName){
+          return MaterialPageRoute(builder: (ctx){
+            return HJRouteDetailPage(settings.arguments);
+          });
+        }
+        return null;
+        // return MaterialPageRoute(builder: (ctx){
+        //   return HJRouteUnknownPage();
+        // });
+      },
+      /// 未找到路由，跳转统一界面
+      onUnknownRoute: (settings){
+        return MaterialPageRoute(builder: (ctx){
+          return HJRouteUnknownPage();
+        });
+      },
     );
   }
 }
 
 class HJRouteTestPage extends StatefulWidget {
+
+  static const String routeName = '/hjroutetest';
 
   @override
   State<StatefulWidget> createState() {
@@ -44,9 +72,27 @@ class _HJRouteTestPageState extends State{
             children: [
               Text(_message),
               CupertinoButton(
-                child: Text('点击跳转'),
+                child: Text('点击到详情页'),
                 onPressed: (){
                   _jumpToDetail(context);
+                },
+              ),
+              CupertinoButton(
+                child: Text('点击到关于页'),
+                onPressed: (){
+                  _jumpToAbout(context);
+                },
+              ),
+              CupertinoButton(
+                child: Text('点击到详情页'),
+                onPressed: (){
+                  _jumpToDetail2(context);
+                },
+              ),
+              CupertinoButton(
+                child: Text('点击到设置页'),
+                onPressed: (){
+                  _jumpToSetting(context);
                 },
               )
             ],
@@ -71,6 +117,16 @@ class _HJRouteTestPageState extends State{
         _message = value;
       });
     });
+  }
+  void _jumpToAbout(BuildContext ctx){
+    Navigator.pushNamed(ctx, HJRouteAboutPage.routeName,arguments: 'from route test');
+  }
+
+  void _jumpToDetail2(BuildContext ctx){
+    Navigator.pushNamed(ctx, HJRouteDetailPage.routeName,arguments: 'from toute test 2222');
+  }
+  void _jumpToSetting(BuildContext ctx){
+    Navigator.pushNamed(ctx, '/hjsettings',arguments: 'from toute test');
   }
 }
 

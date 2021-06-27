@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HJRouteDetailPage extends StatelessWidget {
+  static const String routeName = '/hjdetail';
 
   String _msg;
 
