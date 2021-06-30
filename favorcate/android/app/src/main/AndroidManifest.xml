@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.favorcate">
    <application
-        android:label="favorcate"
+        android:label="美食广场"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
