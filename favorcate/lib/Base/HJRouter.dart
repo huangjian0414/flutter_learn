@@ -1,5 +1,5 @@
 
-import 'package:favorcate/Main/HJMainScreen.dart';
+import 'package:favorcate/Main/HJTabbar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +7,10 @@ import 'package:favorcate/Base/HJRouteUnknownPage.dart';
 
 class HJRouter {
   static final Map<String, WidgetBuilder> routers = {
-    HJMainScreen.routeName: (ctx) => HJMainScreen()
+    HJTabBar.routeName: (ctx) => HJTabBar()
   };
 
-  static final String initialRoute = HJMainScreen.routeName;
+  static final String initialRoute = HJTabBar.routeName;
 
   static final RouteFactory generateRoute = (settings){
     // if (settings.name == HJRouteDetailPage.routeName){

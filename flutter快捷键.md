@@ -39,3 +39,7 @@
 ## command + option + M
 
 - 抽离代码
+
+## command+ shift + W
+
+- 抽离widget
