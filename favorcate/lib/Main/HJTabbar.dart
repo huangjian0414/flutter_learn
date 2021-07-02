@@ -14,17 +14,25 @@ class HJTabBar extends StatefulWidget {
 }
 
 class _HJTabbarStatus extends State {
+  static List<Widget> _pages = [
+    HJHomePage(),
+    HJCollectPage()
+  ];
+  static List<BottomNavigationBarItem> _barItems = [];
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    if (_barItems.isEmpty) {
+      _barItems = getBarItems(context);
+    }
     return CupertinoTabScaffold(
         tabBar: CupertinoTabBar(
-          items: getBarItems(context),
+          items: _barItems,
         ),
         tabBuilder: (content, index) {
-          return CupertinoTabView(builder: (content) {
-            List<Widget> pages = getPages();
-            return pages[index];
+          return CupertinoTabView(
+              builder: (content) {
+            return _pages[index];
           });
         });
   }
@@ -42,14 +50,6 @@ class _HJTabbarStatus extends State {
     return barItems;
   }
 
-  /// tabbar page
-  List<Widget> getPages() {
-    List<Widget> pages = [
-      HJHomePage(),
-      HJCollectPage()
-    ];
-    return pages;
-  }
 }
 
 /// TabbarItem封装

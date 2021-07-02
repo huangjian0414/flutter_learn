@@ -7,32 +7,23 @@ import 'package:flutter_learn/DouBan/Mine/Mine.dart';
 import 'package:flutter_learn/DouBan/Subject/Subject.dart';
 
 class HJTabBar extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _HJTabbarStatus();
-  }
-}
+  /// tabbar page
+  List<Widget> pages = [
+    HJHomePage(),
+    HJSubjectPage(),
+    HJGroupPage(),
+    HJMallPage(),
+    HJMinePage()
+  ];
+  List<BottomNavigationBarItem> _barItems ;
 
-class _HJTabbarStatus extends State {
-  @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return CupertinoTabScaffold(
-        tabBar: CupertinoTabBar(
-          items: getBarItems(),
-          activeColor: Colors.green,
-          inactiveColor: Colors.grey,
-        ),
-        tabBuilder: (content, index) {
-          return CupertinoTabView(builder: (content) {
-            List<Widget> pages = getPages();
-            return pages[index];
-          });
-        });
+  List<BottomNavigationBarItem> get barItems {
+    if (_barItems.isNotEmpty) {
+      return _barItems;
+    }
+    return getBarItems();
   }
 
-  /// tabbar
   List<BottomNavigationBarItem> getBarItems() {
     var items = [
       {'icon': 'home', 'title': '首页'},
@@ -48,17 +39,34 @@ class _HJTabbarStatus extends State {
     return barItems;
   }
 
-  /// tabbar page
-  List<Widget> getPages() {
-    List<Widget> pages = [
-      HJHomePage(),
-      HJSubjectPage(),
-      HJGroupPage(),
-      HJMallPage(),
-      HJMinePage()
-    ];
-    return pages;
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _HJTabbarStatus();
   }
+
+
+}
+
+class _HJTabbarStatus extends State<HJTabBar> {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return CupertinoTabScaffold(
+        tabBar: CupertinoTabBar(
+          items: this.widget.barItems,
+          activeColor: Colors.green,
+          inactiveColor: Colors.grey,
+        ),
+        tabBuilder: (content, index) {
+          return CupertinoTabView(builder: (content) {
+
+            return this.widget.pages[index];
+          });
+        });
+  }
+
 }
 
 /// TabbarItem封装
