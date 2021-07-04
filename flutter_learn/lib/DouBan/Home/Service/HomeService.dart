@@ -10,7 +10,7 @@ class HomeService {
     req.type = HttpType.kGet;
     req.params = {'app_id': '0b4c4e80f73f11e7804bfa163e431402'};
     print('发起了请求');
-    HttpTool().sendRequest(req, (data) {}, (error) {});
+    // final result = await HttpTool().sendRequest(req, (data) {}, (error) {});
     print('整点假数据返回呗');
 
     List<Map<String, dynamic>> datas = [];
