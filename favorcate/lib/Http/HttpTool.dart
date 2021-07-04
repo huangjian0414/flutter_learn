@@ -7,12 +7,12 @@ class HttpTool {
 
   static HttpTool? _instance;
 
-  static late Dio dio;
+  static Dio dio = Dio();
 
   HttpTool._() {
     // 初始化
     if (dio == null) {
-      dio = new Dio();
+      dio = Dio();
     }
   }
 

@@ -1,5 +1,6 @@
 import 'package:favorcate/Base/Config/HJFavorcateTheme.dart';
 import 'package:favorcate/Base/Config/HJRouter.dart';
+import 'package:favorcate/Http/HttpTool.dart';
 import 'package:favorcate/Utils/HJSizeFitUtil.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

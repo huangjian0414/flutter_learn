@@ -6,9 +6,9 @@ import 'package:flutter/cupertino.dart';
 
 class HJMealViewModel extends ChangeNotifier{
 
-  late HJMealModel _mealModel;
+  HJMealModel? _mealModel;
 
-  HJMealModel get mealModel => _mealModel;
+  HJMealModel? get mealModel => _mealModel;
 
   HJMealViewModel(){
     HJMealService.getMealData().then((value) {
@@ -16,4 +16,5 @@ class HJMealViewModel extends ChangeNotifier{
       notifyListeners();
     });
   }
+
 }

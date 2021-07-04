@@ -96,7 +96,10 @@ class HJHomeItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: (){
-        Navigator.pushNamed(context,HJMealPage.routeName,arguments: _homeModel);
+        //使用了不同的风格控件（iOS），这样跳转
+        //Navigator.of(context,rootNavigator: true).pushNamed(HJMealPage.routeName,arguments: _homeModel);
+
+        Navigator.of(context).pushNamed(HJMealPage.routeName,arguments: _homeModel);
       },
       child: Container(
         decoration: BoxDecoration(

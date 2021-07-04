@@ -17,27 +17,43 @@ class HJTabBar extends StatefulWidget {
 class _HJTabbarStatus extends State {
   static List<Widget> _pages = [
     HJHomePage(),
-    HJCollectPage()
+    HJCollectPage(),
   ];
   static List<BottomNavigationBarItem> _barItems = [];
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     if (_barItems.isEmpty) {
       _barItems = getBarItems(context);
     }
-    return CupertinoTabScaffold(
-        tabBar: CupertinoTabBar(
-          items: _barItems,
-        ),
-        tabBuilder: (content, index) {
-          return CupertinoTabView(
-              ///Cupertino也需要设置路由
-              routes: HJRouter.cupertinoRouters,
-              builder: (content) {
-            return _pages[index];
+    // return CupertinoTabScaffold(
+    //     tabBar: CupertinoTabBar(
+    //       items: _barItems,
+    //     ),
+    //     tabBuilder: (content, index) {
+    //       return CupertinoTabView(
+    //           // ///Cupertino也需要设置路由
+    //           // routes: HJRouter.cupertinoRouters,
+    //           builder: (content) {
+    //         return _pages[index];
+    //       });
+    //     });
+    return Scaffold(
+      body: IndexedStack(
+        index: _currentIndex,
+        children: _pages,
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        items: _barItems,
+        onTap: (index){
+          setState(() {
+            _currentIndex = index;
           });
-        });
+        },
+      ),
+    );
   }
 
   /// tabbar

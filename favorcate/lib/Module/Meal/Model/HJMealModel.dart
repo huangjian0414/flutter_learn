@@ -20,6 +20,7 @@ class HJMealModel {
     return data;
   }
 }
+List<String> complexes = ["简单", "中等", "困难"];
 
 class Meal {
   String id = '';
@@ -36,6 +37,9 @@ class Meal {
   bool isVegetarian = false;
   bool isLactoseFree = false;
 
+  String complexityStr = '';
+
+
   Meal.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     categories = json['categories'].cast<String>();
@@ -50,6 +54,8 @@ class Meal {
     isVegan = json['isVegan'];
     isVegetarian = json['isVegetarian'];
     isLactoseFree = json['isLactoseFree'];
+
+    complexityStr = complexes[json['complexity']];
   }
 
   Map<String, dynamic> toJson() {
