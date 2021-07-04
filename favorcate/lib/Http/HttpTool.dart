@@ -7,7 +7,7 @@ class HttpTool {
 
   static HttpTool? _instance;
 
-  static Dio dio = Dio();
+  static late Dio dio;
 
   HttpTool._() {
     // 初始化

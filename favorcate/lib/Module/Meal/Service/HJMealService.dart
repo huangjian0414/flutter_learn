@@ -1,7 +1,7 @@
 
 import 'package:favorcate/Http/HttpRequest.dart';
 import 'package:favorcate/Http/HttpTool.dart';
-import 'package:favorcate/Main/Model/HJMealModel.dart';
+import 'package:favorcate/Module/Meal/Model/HJMealModel.dart';
 
 class HJMealService{
 

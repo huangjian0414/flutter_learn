@@ -1,11 +1,14 @@
-import 'package:favorcate/Home/Model/HJHomeModel.dart';
-import 'package:favorcate/Home/Services/HJHomeServices.dart';
+import 'package:favorcate/Module/Home/Model/HJHomeModel.dart';
+import 'package:favorcate/Module/Home/Services/HJHomeServices.dart';
+import 'package:favorcate/Module/Meal/Pages/HJMealPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:favorcate/Utils/HJSizeFitUtil.dart';
 import 'package:favorcate/Utils/LogUtils.dart';
 
 class HJHomePage extends StatefulWidget {
+
+  static const String routeName = '/home';
 
   @override
   _HJHomePageState createState() => _HJHomePageState();
@@ -91,22 +94,27 @@ class HJHomeItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final bgColor = _homeModel.cColor;
 
-    return Container(
-      decoration: BoxDecoration(
-        //color: bgColor,
-        borderRadius: BorderRadius.circular(12),
-        gradient: LinearGradient(
-          colors: [
-            bgColor.withOpacity(0.5),
-            bgColor
-          ]
-        )
-      ),
-      alignment: Alignment.center,
-      child: Text(
-        _homeModel.title,
-        style: Theme.of(context).textTheme.headline2!.copyWith(
-          fontWeight: FontWeight.bold
+    return GestureDetector(
+      onTap: (){
+        Navigator.pushNamed(context,HJMealPage.routeName,arguments: _homeModel);
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          //color: bgColor,
+          borderRadius: BorderRadius.circular(12),
+          gradient: LinearGradient(
+            colors: [
+              bgColor.withOpacity(0.5),
+              bgColor
+            ]
+          )
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          _homeModel.title,
+          style: Theme.of(context).textTheme.headline2!.copyWith(
+            fontWeight: FontWeight.bold
+          ),
         ),
       ),
     );

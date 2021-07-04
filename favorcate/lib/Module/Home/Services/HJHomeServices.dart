@@ -1,6 +1,6 @@
 
 import 'package:flutter/services.dart';
-import 'package:favorcate/Home/Model/HJHomeModel.dart';
+import 'package:favorcate/Module/Home/Model/HJHomeModel.dart';
 import 'dart:convert';
 
 class HJHomeServices {

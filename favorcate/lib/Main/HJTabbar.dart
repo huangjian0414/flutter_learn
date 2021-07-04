@@ -1,5 +1,6 @@
-import 'package:favorcate/Collect/Pages/HJCollectPage.dart';
-import 'package:favorcate/Home/Pages/HJHomePage.dart';
+import 'package:favorcate/Base/Config/HJRouter.dart';
+import 'package:favorcate/Module/Collect/Pages/HJCollectPage.dart';
+import 'package:favorcate/Module/Home/Pages/HJHomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +32,8 @@ class _HJTabbarStatus extends State {
         ),
         tabBuilder: (content, index) {
           return CupertinoTabView(
+              ///Cupertino也需要设置路由
+              routes: HJRouter.cupertinoRouters,
               builder: (content) {
             return _pages[index];
           });

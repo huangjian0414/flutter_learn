@@ -1,13 +1,19 @@
 
 import 'package:favorcate/Main/HJTabbar.dart';
+import 'package:favorcate/Module/Home/Model/HJHomeModel.dart';
+import 'package:favorcate/Module/Home/Pages/HJHomePage.dart';
+import 'package:favorcate/Module/Meal/Pages/HJMealPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:favorcate/Base/HJRouteUnknownPage.dart';
+import 'package:favorcate/Base/Config/HJRouteUnknownPage.dart';
 
 class HJRouter {
   static final Map<String, WidgetBuilder> routers = {
     HJTabBar.routeName: (ctx) => HJTabBar()
+  };
+  static final Map<String, WidgetBuilder> cupertinoRouters = {
+    HJMealPage.routeName: (ctx) => HJMealPage()
   };
 
   static final String initialRoute = HJTabBar.routeName;
@@ -18,6 +24,7 @@ class HJRouter {
     //     return HJRouteDetailPage(settings.arguments);
     //   });
     // }
+
     return MaterialPageRoute(builder: (ctx){
       return HJRouteUnknownPage();
     });
