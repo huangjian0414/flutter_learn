@@ -1,7 +1,9 @@
 
+import 'package:favorcate/Module/Collect/Model/HJCollectViewModel.dart';
 import 'package:favorcate/Module/Meal/Model/HJMealModel.dart';
 import 'package:flutter/material.dart';
 import 'package:favorcate/Utils/HJSizeFitUtil.dart';
+import 'package:provider/provider.dart';
 
 class HJMealDetailPage extends StatelessWidget {
   static const String routeName = '/meal_detail';
@@ -16,6 +18,7 @@ class HJMealDetailPage extends StatelessWidget {
         title: Text('详情'),
       ),
       body: HJMealDetailContent(model),
+      floatingActionButton: HJMealFloatButton(model),
     );
   }
 }
@@ -109,6 +112,29 @@ class HJMealDetailContent extends StatelessWidget {
           borderRadius: BorderRadius.circular(8.hj_px)
       ),
       child: child,
+    );
+  }
+}
+
+class HJMealFloatButton extends StatelessWidget {
+
+  final Meal _meal;
+  HJMealFloatButton(this._meal);
+
+  @override
+  Widget build(BuildContext context) {
+    return Consumer<HJCollectViewModel>(
+        builder: (ctx, mealCollectVM,child){
+
+          final icon = mealCollectVM.isCollect(_meal)?Icon(Icons.favorite,color: Colors.red,):Icon(Icons.favorite_border,color: Colors.black,);
+
+          return FloatingActionButton(
+              child: icon,
+              onPressed: (){
+                mealCollectVM.handleMeal(_meal);
+              }
+          );
+        }
     );
   }
 }

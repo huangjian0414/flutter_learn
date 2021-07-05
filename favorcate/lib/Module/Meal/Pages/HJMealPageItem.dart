@@ -1,8 +1,10 @@
 
+import 'package:favorcate/Module/Collect/Model/HJCollectViewModel.dart';
 import 'package:favorcate/Module/Detail/Pages/HJMealDetailPage.dart';
 import 'package:favorcate/Module/Meal/Model/HJMealModel.dart';
 import 'package:flutter/material.dart';
 import 'package:favorcate/Utils/HJSizeFitUtil.dart';
+import 'package:provider/provider.dart';
 
 class HJMealPageItem extends StatelessWidget {
 
@@ -64,9 +66,28 @@ class HJMealPageItem extends StatelessWidget {
         children: [
           HJMealOperationItem(Icon(Icons.schedule),'${_meal.duration}分钟'),
           HJMealOperationItem(Icon(Icons.restaurant),'${_meal.complexityStr}'),
-          HJMealOperationItem(Icon(Icons.favorite),'未收藏')
+          buildOperationCollect()
         ],
       ),
+    );
+  }
+
+  Widget buildOperationCollect(){
+
+    return Consumer<HJCollectViewModel>(
+        builder: (ctx,collectVM,child){
+
+          final iconData = collectVM.isCollect(_meal)?Icon(Icons.favorite,color: Colors.red,):Icon(Icons.favorite_border);
+          final collectColor = collectVM.isCollect(_meal)?Colors.red:Colors.black;
+          final title = collectVM.isCollect(_meal)?'收藏':'未收藏';
+
+          return GestureDetector(
+            child: HJMealOperationItem(iconData,title,titleColor: collectColor,),
+            onTap: (){
+              collectVM.handleMeal(_meal);
+            },
+          );
+        }
     );
   }
 
@@ -76,17 +97,23 @@ class HJMealOperationItem extends StatelessWidget {
 
   final Widget _icon;
   final String _title;
+  final Color titleColor;
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        _icon,
-        SizedBox(width: 3.hj_px,),
-        Text(_title)
-      ],
+    return Container(
+      width: 80.hj_px,
+      padding: EdgeInsets.symmetric(vertical: 12.hj_px),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _icon,
+          SizedBox(width: 3.hj_px,),
+          Text(_title,style: TextStyle(color: titleColor),)
+        ],
+      ),
     );
   }
 
-  HJMealOperationItem(this._icon, this._title);
+  HJMealOperationItem(this._icon, this._title,{this.titleColor = Colors.black});
 }
