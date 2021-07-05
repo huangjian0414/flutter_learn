@@ -123,18 +123,23 @@ class HJMealFloatButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<HJCollectViewModel>(
-        builder: (ctx, mealCollectVM,child){
+    return Consumer<HJCollectViewModel>(builder: (ctx, mealCollectVM, child) {
+      final icon = mealCollectVM.isCollect(_meal)
+          ? Icon(
+              Icons.favorite,
+              color: Colors.red,
+            )
+          : Icon(
+              Icons.favorite_border,
+              color: Colors.black,
+            );
 
-          final icon = mealCollectVM.isCollect(_meal)?Icon(Icons.favorite,color: Colors.red,):Icon(Icons.favorite_border,color: Colors.black,);
-
-          return FloatingActionButton(
-              child: icon,
-              onPressed: (){
-                mealCollectVM.handleMeal(_meal);
-              }
-          );
-        }
-    );
+      return FloatingActionButton(
+          backgroundColor: Colors.white,
+          child: icon,
+          onPressed: () {
+            mealCollectVM.handleMeal(_meal);
+          });
+    });
   }
 }
