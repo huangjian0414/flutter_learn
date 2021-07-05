@@ -1,4 +1,5 @@
 import 'package:favorcate/Module/Home/Model/HJHomeModel.dart';
+import 'package:favorcate/Module/Home/Pages/HJHomeDrawer.dart';
 import 'package:favorcate/Module/Home/Services/HJHomeServices.dart';
 import 'package:favorcate/Module/Meal/Pages/HJMealPage.dart';
 import 'package:flutter/cupertino.dart';
@@ -22,12 +23,27 @@ class _HJHomePageState extends State<HJHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('美食广场'),
+        leading: buildLeadingItem(),
       ),
       body: FutureBuilder<List<HJHomeModel>>(
         future: HJHomeServices.getHomeData(),
         builder: _buildFuture,
       ),
+      drawer: HJHomeDrawer(),
     );
+  }
+
+  Builder buildLeadingItem() {
+    return Builder(
+        builder: (ctx){
+          return IconButton(
+              onPressed: (){
+                Scaffold.of(ctx).openDrawer();
+              },
+              icon: Icon(Icons.build)
+          );
+        },
+      );
   }
 
   Widget _buildFuture(ctx, snapshot){
