@@ -1,4 +1,5 @@
 
+import 'package:favorcate/Module/Filter/Pages/HJFilterPage.dart';
 import 'package:flutter/material.dart';
 import 'package:favorcate/Utils/HJSizeFitUtil.dart';
 
@@ -18,7 +19,7 @@ class HJHomeDrawer extends StatelessWidget {
               Navigator.of(context).pop();
             }),
             buildListTile(context,Icon(Icons.settings),'过滤',(){
-
+              Navigator.of(context).pushNamed(HJFilterPage.routeName);
             }),
           ],
         ),

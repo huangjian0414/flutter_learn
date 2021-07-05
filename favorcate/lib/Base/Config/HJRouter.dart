@@ -1,6 +1,7 @@
 
 import 'package:favorcate/Main/HJTabbar.dart';
 import 'package:favorcate/Module/Detail/Pages/HJMealDetailPage.dart';
+import 'package:favorcate/Module/Filter/Pages/HJFilterPage.dart';
 import 'package:favorcate/Module/Home/Model/HJHomeModel.dart';
 import 'package:favorcate/Module/Home/Pages/HJHomePage.dart';
 import 'package:favorcate/Module/Meal/Pages/HJMealPage.dart';
@@ -22,11 +23,14 @@ class HJRouter {
   static final String initialRoute = HJTabBar.routeName;
 
   static final RouteFactory generateRoute = (settings){
-    // if (settings.name == HJRouteDetailPage.routeName){
-    //   return MaterialPageRoute(builder: (ctx){
-    //     return HJRouteDetailPage(settings.arguments);
-    //   });
-    // }
+    if (settings.name == HJFilterPage.routeName) {
+      return MaterialPageRoute(
+          builder: (ctx) {
+            return HJFilterPage();
+          },
+          /// 全屏模态视图弹出
+          fullscreenDialog: true);
+    }
 
     return MaterialPageRoute(builder: (ctx){
       return HJRouteUnknownPage();
