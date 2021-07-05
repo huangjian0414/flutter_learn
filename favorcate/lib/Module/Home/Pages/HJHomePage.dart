@@ -23,27 +23,35 @@ class _HJHomePageState extends State<HJHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('美食广场'),
-        leading: buildLeadingItem(),
+        leading: buildLeadingItem(context),
       ),
       body: FutureBuilder<List<HJHomeModel>>(
         future: HJHomeServices.getHomeData(),
         builder: _buildFuture,
       ),
-      drawer: HJHomeDrawer(),
     );
   }
 
-  Builder buildLeadingItem() {
-    return Builder(
-        builder: (ctx){
-          return IconButton(
-              onPressed: (){
-                Scaffold.of(ctx).openDrawer();
-              },
-              icon: Icon(Icons.build)
-          );
+  Widget buildLeadingItem(BuildContext ctx) {
+    return IconButton(
+        onPressed: (){
+          Scaffold.of(ctx).openDrawer();
         },
-      );
+        icon: Icon(Icons.build)
+    );;
+  }
+  /// 改为全屏遮挡，不需要builder了，builder会拿到上层的content
+  Builder buildBuilder() {
+    return Builder(
+      builder: (ctx){
+        return IconButton(
+            onPressed: (){
+              Scaffold.of(ctx).openDrawer();
+            },
+            icon: Icon(Icons.build)
+        );
+      },
+    );
   }
 
   Widget _buildFuture(ctx, snapshot){

@@ -1,5 +1,6 @@
 import 'package:favorcate/Base/Config/HJRouter.dart';
 import 'package:favorcate/Module/Collect/Pages/HJCollectPage.dart';
+import 'package:favorcate/Module/Home/Pages/HJHomeDrawer.dart';
 import 'package:favorcate/Module/Home/Pages/HJHomePage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,7 @@ class _HJTabbarStatus extends State {
           });
         },
       ),
+      drawer: HJHomeDrawer(),
     );
   }
 
