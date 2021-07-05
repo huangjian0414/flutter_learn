@@ -109,7 +109,7 @@ class HJMealOperationItem extends StatelessWidget {
         children: [
           _icon,
           SizedBox(width: 3.hj_px,),
-          Text(_title,style: TextStyle(color: titleColor),)
+          Expanded(child: Text(_title,style: TextStyle(color: titleColor),))
         ],
       ),
     );
