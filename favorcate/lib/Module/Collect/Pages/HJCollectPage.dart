@@ -32,12 +32,12 @@ class HJCollectContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<HJCollectViewModel>(
       builder: (ctx, collectVM, child) {
+        print('builderHJCollectContent - ${collectVM.collectMeals}');
         if (collectVM.collectMeals.isEmpty) {
           return Center(
             child: Text('未收藏美食'),
           );
         }
-
         return ListView.builder(
             itemCount: collectVM.collectMeals.length,
             itemBuilder: (ctx, index) {

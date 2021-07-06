@@ -11,9 +11,14 @@ class HJMealViewModel extends ChangeNotifier{
 
   HJFilterViewModel? _filterVM;
 
+  ///原数据
+  List<Meal>? _origMeals;
+
   HJMealModel? get mealModel {
-    if (_mealModel != null) {
-      final newMeals = _mealModel?.meal.where((element) {
+
+    if (_origMeals != null) {
+      final origModels = _origMeals;
+      final newMeals = origModels?.where((element) {
         if (_filterVM != null) {
           if (_filterVM!.isGlutenFree&&!element.isGlutenFree) {
             return false;
@@ -34,15 +39,18 @@ class HJMealViewModel extends ChangeNotifier{
         _mealModel?.meal = newMeals;
       }
     }
+
     return _mealModel;
   }
   void updateFilters(HJFilterViewModel filterVM){
     _filterVM = filterVM;
+    notifyListeners();
   }
 
   HJMealViewModel(){
     HJMealService.getMealData().then((value) {
       _mealModel = value;
+      _origMeals = value.meal;
       notifyListeners();
     });
   }

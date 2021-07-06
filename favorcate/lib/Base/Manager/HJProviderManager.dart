@@ -14,6 +14,13 @@ List<SingleChildWidget> providers = [
         mealVM!.updateFilters(filterVM);
         return mealVM;
       }),
-  ChangeNotifierProvider(create: (ctx) => HJCollectViewModel()),
+  //ChangeNotifierProvider(create: (ctx) => HJCollectViewModel()),
+  ChangeNotifierProxyProvider<HJFilterViewModel,HJCollectViewModel>(
+      create: (ctx) =>HJCollectViewModel(),
+      update: (ctx,filterVM,collectVM){
+        collectVM!.updateFilters(filterVM);
+        return collectVM;
+      }),
+
 
 ];

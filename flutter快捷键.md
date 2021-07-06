@@ -5,6 +5,7 @@
 ## Option + Enter
 
 - 将 widget 自动包裹一层 widget 或删除这层 widget,StatelessWidget转 StatefulWidget等等
+- 快速导包
 
 ## command + option + t
 
@@ -43,3 +44,5 @@
 ## command+ shift + W
 
 - 抽离widget
+
+## Commond + d 快速复制一行；
