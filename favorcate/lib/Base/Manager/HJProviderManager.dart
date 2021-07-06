@@ -6,7 +6,7 @@ import 'package:provider/single_child_widget.dart';
 
 
 List<SingleChildWidget> providers = [
-  //ChangeNotifierProvider(create: (ctx) => HJMealViewModel()),
+  // ChangeNotifierProvider(create: (ctx) => HJMealViewModel()),
   ChangeNotifierProvider(create: (ctx) => HJFilterViewModel()),
   ChangeNotifierProxyProvider<HJFilterViewModel,HJMealViewModel>(
       create: (ctx) =>HJMealViewModel(),
@@ -21,6 +21,10 @@ List<SingleChildWidget> providers = [
         collectVM!.updateFilters(filterVM);
         return collectVM;
       }),
-
-
+  ChangeNotifierProxyProvider<HJMealViewModel,HJCollectViewModel>(
+      create: (ctx) =>HJCollectViewModel(),
+      update: (ctx,mealsVM,collectVM){
+        collectVM!.updateMeals(mealsVM);
+        return collectVM;
+      }),
 ];
