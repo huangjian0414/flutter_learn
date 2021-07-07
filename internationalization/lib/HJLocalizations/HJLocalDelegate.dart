@@ -16,6 +16,7 @@ class HJLocalDelegate extends LocalizationsDelegate<HJLocalManager>{
   /// 当Locale发生改变时（语言环境），加载对应的HYLocalizations资源
   Future<HJLocalManager> load(Locale locale) async {
     // TODO: implement load
+    //return SynchronousFuture(HJLocalManager(locale));
     final localization = HJLocalManager(locale);
     await localization.loadLocalValues();
     return localization;
