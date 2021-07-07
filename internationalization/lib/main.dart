@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:internationalization/HJLocalDelegate.dart';
-import 'package:internationalization/HJLocalManager.dart';
+import 'package:internationalization/HJLocalizations/HJLocalDelegate.dart';
+import 'package:internationalization/HJLocalizations/HJLocalManager.dart';
 
 
 

@@ -1,0 +1,12 @@
+{
+  "en": {
+    "title": "home",
+    "text": "Tap",
+    "btnText": "Pick a Time"
+  },
+  "zh": {
+    "title": "首页",
+    "text": "点击",
+    "btnText": "选择一个时间"
+  }
+}
