@@ -77,3 +77,5 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
   assets:
     - assets/json/
+flutter_intl:
+  enabled: true
