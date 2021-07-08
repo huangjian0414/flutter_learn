@@ -1,5 +1,7 @@
 
 
+import 'package:flutter/foundation.dart';
+
 void HJLog(Object message, StackTrace current) {
 
   MYCustomTrace programInfo = MYCustomTrace(current);
@@ -14,7 +16,8 @@ class MYCustomTrace {
   int lineNumber = 0;
   int columnNumber = 0;
 
-  bool isRelease = const bool.fromEnvironment("dart.vm.product");
+  //bool isRelease = const bool.fromEnvironment("dart.vm.product");
+  bool isRelease = kReleaseMode;
 
   MYCustomTrace(this._trace) {
     _parseTrace();
