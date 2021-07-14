@@ -64,49 +64,59 @@ class ButtonDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        // 1.RaisedButton:
-        RaisedButton(
-          child: Text("RaisedButton"),
-          textColor: Colors.white,
-          color: Colors.purple,
-          onPressed: () => print("RaisedButton Click"),
-        ),
+        ElevatedButton(
+                child: Text("ElevatedButton"),
+                style: ButtonStyle(
+                  foregroundColor:  MaterialStateProperty.all(Colors.blueAccent),
+                  backgroundColor: MaterialStateProperty.all(Colors.deepOrangeAccent),
+                  textStyle: MaterialStateProperty.all(TextStyle(
+                    fontSize: 20
+                  ))
+                ),
+                onPressed: () => print("ElevatedButton Click"),
+              ),
+              TextButton(
+                child: Text("TextButton"),
+                style: ButtonStyle(
+                    foregroundColor:  MaterialStateProperty.all(Colors.orange),
+                    textStyle: MaterialStateProperty.all(TextStyle(
+                        fontSize: 20
+                    ))
+                ),
+                onPressed: () => print("TextButton Click"),
+              ),
 
-        // 2.FlatButton
-        FlatButton(
-          child: Text("FlatButton"),
-          color: Colors.orange,
-          onPressed: () => print("FlatButton Click"),
-        ),
-
-        // 3.OutlineButton
-        OutlineButton(
-          child: Text("OutlineButton"),
-          onPressed: () => print("OutlineButton"),
-        ),
-
-        // 4.FloatingActionButton
-//        FloatingActionButton
-
-        // 5.自定义button: 图标-文字-背景-圆角
-        FlatButton(
-          color: Colors.amberAccent,
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8)
-          ),
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Icon(Icons.favorite, color: Colors.red,),
-              Text("喜欢作者")
-            ],
-          ),
-          onPressed: () {},
-        )
+              // 3.OutlineButton
+              OutlinedButton(
+                child: Text("OutlinedButton"),
+                style: ButtonStyle(
+                    foregroundColor:  MaterialStateProperty.all(Colors.red),
+                    textStyle: MaterialStateProperty.all(TextStyle(
+                        fontSize: 20
+                    ))
+                ),
+                onPressed: () => print("OutlinedButton"),
+              ),
+              TextButton(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Icon(Icons.favorite, color: Colors.red,),
+                    Text("海贼·王路飞")
+                  ],
+                ),
+                onPressed: () {},
+              )
       ],
     );
   }
 }
+
+
+floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => print("FloatingActionButton"),
+      ),
 
 ```
 
@@ -190,7 +200,9 @@ class ImageExtensionDemo extends StatelessWidget {
     // 1.占位图的问题: FadeInImage
     // 2.图片缓存: 1000张 100m
     return FadeInImage(
+      ///淡出 时间
       fadeOutDuration: Duration(milliseconds: 1),
+      /// 淡入 时间
       fadeInDuration: Duration(milliseconds: 1),
       placeholder: AssetImage("assets/images/juren.jpeg"),
       image: NetworkImage(imageURL),
@@ -252,6 +264,7 @@ class TextFieldDemo extends StatelessWidget {
           children: <Widget>[
             TextField(
               controller: usernameTextEditController,
+              /// TextField的外观以及提示信息等
               decoration: InputDecoration(
                   labelText: "username",
                   icon: Icon(Icons.people),

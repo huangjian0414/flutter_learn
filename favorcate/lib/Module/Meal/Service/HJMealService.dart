@@ -7,7 +7,7 @@ class HJMealService{
 
   static Future<HJMealModel> getMealData() async{
     HttpRequest req = HttpRequest();
-    req.url = 'https://yapi.baidu.com/mock/73924/v1/getmeal';
+    req.url = 'http://yapi.smart-xwork.cn/mock/73924/v1/getmeal';
     req.type = HttpType.kGet;
 
     final result = await HttpTool.sendRequest(req);
