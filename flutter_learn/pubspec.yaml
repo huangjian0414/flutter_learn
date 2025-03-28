@@ -31,7 +31,7 @@ dependencies:
 
   dio: ^5.8.0+1 #网络库
   json_annotation: ^4.9.0
-  fluttertoast: ^8.2.5
+#  fluttertoast: 8.0.2
   provider: ^6.1.4
   event_bus: ^2.0.0
   device_info: ^2.0.2

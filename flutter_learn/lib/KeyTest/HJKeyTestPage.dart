@@ -47,7 +47,7 @@ class _HJKeyTestPageState extends State{
       ),
       body: ListView(
         children: lists.map((e) {
-          return ListItemFul(name:e,key: ValueKey(e),);
+          return ListItemLess(e);
         }).toList(),
       ),
       floatingActionButton: FloatingActionButton(
