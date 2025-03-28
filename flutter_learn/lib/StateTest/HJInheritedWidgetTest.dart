@@ -23,12 +23,16 @@ class HJCounterWidget extends InheritedWidget{
   final int counter;
 
   ///定义构造方法
-  HJCounterWidget({this.counter, Widget child}): super(child:child);
+  HJCounterWidget({required this.counter, required Widget child}): super(child:child);
 
   ///获取组件最近的当前InheritedWidget
   static HJCounterWidget of(BuildContext context){
     ///沿着Element树, 去找到最近的HYCounterElement, 从Element中取出Widget对象
-    return context.dependOnInheritedWidgetOfExactType();
+    final inheritedWidget = context.dependOnInheritedWidgetOfExactType<HJCounterWidget>();
+    if (inheritedWidget == null) {
+      throw Exception('No HJCounterWidget found in the widget tree.');
+    }
+    return inheritedWidget;
   }
 
   /// 必须实现的方法

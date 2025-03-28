@@ -9,7 +9,7 @@ class HJRouteAboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /// 拿到命名路由传递的参数
-    final _msg = ModalRoute.of(context).settings.arguments;
+    final _msg = ModalRoute.of(context)?.settings.arguments;
 
 
     return Scaffold(
@@ -20,7 +20,7 @@ class HJRouteAboutPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(_msg),
+            Text('$_msg'),
             CupertinoButton(child: Text('返回'), onPressed: (){
               Navigator.pop(context);
             })

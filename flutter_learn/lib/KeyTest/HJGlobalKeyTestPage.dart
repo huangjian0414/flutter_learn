@@ -31,8 +31,8 @@ class HJGlobalKeyPage extends StatelessWidget{
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.data_usage),
         onPressed: (){
-          HJLog('${homeKey.currentState.value}', StackTrace.current);
-          HJLog('${homeKey.currentState.widget.name}', StackTrace.current);
+          HJLog('${homeKey.currentState?.value}', StackTrace.current);
+          HJLog('${homeKey.currentState?.widget.name}', StackTrace.current);
           HJLog('${homeKey.currentContext}', StackTrace.current);
           HJLog('${homeKey.currentWidget}', StackTrace.current);
 
@@ -45,7 +45,7 @@ class HJGlobalKeyPage extends StatelessWidget{
 class HJGlobalKeyContent extends StatefulWidget{
   final String name = '张三';
 
-  HJGlobalKeyContent({Key key}):super(key: key);
+  HJGlobalKeyContent({Key? key}):super(key: key);
 
   @override
   State<StatefulWidget> createState() {

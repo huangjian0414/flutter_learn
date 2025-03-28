@@ -14,7 +14,7 @@ class HJTheme{
       // 3.primaryColor: 单独设置导航和TabBar的颜色
       primaryColor: Colors.orange,
       // 4.accentColor: 单独设置FloatingActionButton\Switch
-      accentColor: Colors.blue,
+      // accentColor: Colors.blue,
       // 5.Button的主题
       buttonTheme: ButtonThemeData(
           height: 25,
@@ -47,7 +47,7 @@ class HJTheme{
     // 3.primaryColor: 单独设置导航和TabBar的颜色
     primaryColor: Colors.blueGrey,
     // 4.accentColor: 单独设置FloatingActionButton\Switch
-    accentColor: Colors.deepPurple,
+    // accentColor: Colors.deepPurple,
     // 5.Button的主题
     buttonTheme: ButtonThemeData(
         height: 25,

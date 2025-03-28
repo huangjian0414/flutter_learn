@@ -15,12 +15,8 @@ class HJTabBar extends StatefulWidget {
     HJMallPage(),
     HJMinePage()
   ];
-  List<BottomNavigationBarItem> _barItems ;
 
   List<BottomNavigationBarItem> get barItems {
-    if (_barItems.isNotEmpty) {
-      return _barItems;
-    }
     return getBarItems();
   }
 
@@ -34,7 +30,7 @@ class HJTabBar extends StatefulWidget {
     ];
     List<BottomNavigationBarItem> barItems = [];
     for (var item in items) {
-      barItems.add(HJTabbarItem(item['icon'], item['title']));
+      barItems.add(HJTabbarItem(item['icon']!, item['title']!));
     }
     return barItems;
   }

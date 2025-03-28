@@ -42,7 +42,6 @@ class HJThemeTestPage extends StatelessWidget {
             /// iOS switch 颜色不随主题，自己设置颜色
             CupertinoSwitch(value: true, onChanged: (value) {}, activeColor: Colors.red,),
             ElevatedButton(child: Text("R"), onPressed: () {},),
-            RaisedButton(onPressed: (){},child: Text('RR'),),
             Card(child: Text("溪秀嘻嘻嘻", style: TextStyle(fontSize: 50),),)
           ],
         ),
@@ -101,7 +100,6 @@ class HJThemeDetailPage extends StatelessWidget {
         /// iOS switch 颜色不随主题，自己设置颜色
         CupertinoSwitch(value: true, onChanged: (value) {}, activeColor: Colors.red,),
         ElevatedButton(child: Text("R"), onPressed: () {},),
-        RaisedButton(onPressed: (){},child: Text('RR'),),
         Card(child: Text("溪秀嘻嘻嘻", style: TextStyle(fontSize: 50),),)
       ],
     ),

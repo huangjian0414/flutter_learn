@@ -1,15 +1,15 @@
 
 class HomeModel {
 
-  int rank;
-  String imageURL;
-  String title;
-  String playDate;
-  double rating;
-  String originalTitle;
-  String type;
-  String director;
-  String actor;
+  int rank = 0;
+  String imageURL = '';
+  String title = '';
+  String playDate = '';
+  double rating = 0;
+  String originalTitle = '';
+  String type = '';
+  String director = '';
+  String actor = '';
 
   HomeModel.fromJson(Map<String, dynamic> json){
 

@@ -17,7 +17,7 @@ class HJRouter {
   static final RouteFactory generateRoute = (settings){
     if (settings.name == HJRouteDetailPage.routeName){
       return MaterialPageRoute(builder: (ctx){
-        return HJRouteDetailPage(settings.arguments);
+        return HJRouteDetailPage('${settings.arguments}');
       });
     }
     return null;

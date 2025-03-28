@@ -24,9 +24,9 @@ class HJAnimationTestPage extends StatefulWidget {
 
 class _HJAnimationTestPageState extends State<HJAnimationTestPage> with SingleTickerProviderStateMixin{
   //1.创建AnimationController
-  AnimationController _animationController;
-  Animation _curvedAnimation;
-  Animation _tween;
+  late AnimationController _animationController;
+  late Animation _curvedAnimation;
+  late Animation _tween;
 
   @override
   void initState() {
@@ -112,7 +112,7 @@ class HJAnimationWidget extends AnimatedWidget{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    Animation anim = listenable;
+    final Animation<double> anim = listenable as Animation<double>;
     return Icon(Icons.favorite,color: Colors.red,size: anim.value,);
   }
 }

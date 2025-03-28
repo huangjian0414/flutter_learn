@@ -10,9 +10,9 @@ void HJLog(Object message, StackTrace current) {
 
 class MYCustomTrace {
   final StackTrace _trace;
-  String fileName;
-  int lineNumber;
-  int columnNumber;
+  String fileName = '';
+  int lineNumber = 0;
+  int columnNumber = 0;
 
   bool isRelease = const bool.fromEnvironment("dart.vm.product");
 

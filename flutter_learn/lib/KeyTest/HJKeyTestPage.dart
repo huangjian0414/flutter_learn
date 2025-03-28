@@ -88,7 +88,7 @@ class ListItemLess extends StatelessWidget {
 class ListItemFul extends StatefulWidget {
   final String name;
 
-  const ListItemFul({Key key, this.name}) : super(key: key);
+  const ListItemFul({Key? key, this.name = ''}) : super(key: key);
 
   //ListItemFul(this.name) :super();
 

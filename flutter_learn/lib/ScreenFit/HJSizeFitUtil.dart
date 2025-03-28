@@ -3,15 +3,15 @@ import 'dart:ui';
 
 class HJSizeFitUtil {
 // 1.基本信息
-  static double physicalWidth;
-  static double physicalHeight;
-  static double screenWidth;
-  static double screenHeight;
-  static double dpr;
-  static double statusHeight;
+  static double physicalWidth = 0;
+  static double physicalHeight = 0;
+  static double screenWidth = 0;
+  static double screenHeight = 0;
+  static double dpr = 0;
+  static double statusHeight = 0;
 
-  static double rpx;
-  static double px;
+  static double rpx = 0;
+  static double px = 0;
   /// 以750作为设计稿宽度 ，可选
   static void initialize({double standardSize = 750}) {
     // 1.手机的物理分辨率

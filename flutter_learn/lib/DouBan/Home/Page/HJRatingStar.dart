@@ -15,14 +15,14 @@ class HJRatingStar extends StatefulWidget {
   final Widget selectedImage;
 
   HJRatingStar({
-  @required this.rating,
+  required this.rating,
     this.maxRating = 10,
     this.count = 5,
     this.size = 30,
     this.unselectedColor = const Color(0xffbbbbbb),
     this.selectedColor = const Color(0xffff0000),
-    Widget unselectedImage,
-    Widget selectedImage,
+    Widget? unselectedImage,
+    Widget? selectedImage,
   }): unselectedImage = unselectedImage ?? Icon(Icons.star_border, color: unselectedColor, size: size,),
   selectedImage = selectedImage ?? Icon(Icons.star, color: selectedColor, size: size,);
 

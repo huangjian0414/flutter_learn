@@ -2,11 +2,11 @@
 enum HttpType { kGet, kPost, kPut, kDelete }
 class HttpRequest {
 
-  String url;
-  Map<String, dynamic> params;
-  Map<String, String> headers;
+  String url = '';
+  Map<String, dynamic> params = {};
+  Map<String, String> headers = {};
   HttpType type = HttpType.kGet;
-  int timeOut ;
+  int timeOut = 0;
 
   static String getTypeString(HttpType type) {
     switch (type){

@@ -26,12 +26,12 @@ class HJMultipleAnimTestPage extends StatefulWidget {
 
 class _HJMultipleAnimTestPageState extends State<HJMultipleAnimTestPage> with SingleTickerProviderStateMixin{
   //1.创建AnimationController
-  AnimationController _animationController;
-  Animation _curvedAnimation;
-  Animation _sizeTween;
-  Animation _colorTween;
-  Animation _opacitytween;
-  Animation _radianstween;
+  late AnimationController _animationController;
+  late Animation _curvedAnimation;
+  late Animation _sizeTween;
+  late Animation _colorTween;
+  late Animation _opacitytween;
+  late Animation _radianstween;
 
   @override
   void initState() {
